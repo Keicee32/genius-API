@@ -6,7 +6,7 @@ let artist_name = document.querySelector('.artist_name')
 let artist_state = document.querySelector('.artist_state')
 let showContent = document.querySelector('.show')
 let artist_song = document.querySelector('.artist_song')
-let h3 = document.querySelectorAll('h3')
+// let h3 = document.querySelectorAll('h3')
 
 
 async function searchSongs(artist_name)
@@ -25,17 +25,23 @@ async function searchSongs(artist_name)
 		let data = await response.json()
 		let perchunk = 2
 		let li
+
+		artist_song.innerHTML = ""
+
+
+
 		// console.log(data);
 		data.response.hits.forEach((datas,index) => {
+			
 			// console.log(datas.length <= 3);
 			if(index <= perchunk){
 				li = document.createElement('li')
 				li.innerHTML = datas.result.full_title
-				artist_song.append(li)
+				artist_song.appendChild(li)
 				
-				console.log(index, datas.result.full_title)
+				// console.log(index, datas.result.full_title)
 				
-				showContent.append(artist_song)
+				// showContent.append(artist_song)
 			} else {
 				if(li.innerHTML !== ""){
 					console.log('Not Empty')
@@ -87,9 +93,8 @@ btn.addEventListener('click', function(){
 		alert('Empty Strings not allowed');	
 	}else{
     // searchSongs(names.value)
-		h3.forEach(elements => {
-			elements.classList.add('show')
-		})
+		let h3 = document.createElement("h3")
+		h3.innerHTML = `These are the top 3 songs`
 
 		getArtiste()
 	}
@@ -99,7 +104,8 @@ btn.addEventListener('click', function(){
 
 function showDetails(data){
 	artist_state.innerHTML = `<img src="${data.response.artist.user.avatar.medium.url}" alt="Artist Picture"/>`
-	
+	artist_name.innerHTML = ""
+
 	let p 
 
 	data.response.artist.description.dom.children.map((repo) => {
@@ -111,7 +117,7 @@ function showDetails(data){
 				p = document.createElement('p')
 				let newWord = JSON.stringify(value)
 				p.append(JSON.parse(newWord))
-				showContent.append(p)
+				artist_name.append(p)
 			
 			} else{
 				
