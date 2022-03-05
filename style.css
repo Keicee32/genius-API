@@ -1,0 +1,15 @@
+li{
+    list-style: none;
+}
+
+h3{
+    visibility: hidden;
+}
+
+.show{
+    visibility: visible;
+}
+
+input{
+    margin: 20px;
+}
