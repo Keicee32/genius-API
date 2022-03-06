@@ -28,26 +28,23 @@ async function searchSongs(artist_name)
 
 		artist_song.innerHTML = ""
 
-
+		let h3 = document.createElement("h3")
+			h3.innerHTML = "These are the top 3 songs"
 
 		// console.log(data);
 		data.response.hits.forEach((datas,index) => {
 			
 			// console.log(datas.length <= 3);
 			if(index <= perchunk){
+				
 				li = document.createElement('li')
 				li.innerHTML = datas.result.full_title
-				artist_song.appendChild(li)
+				artist_song.append(li)
+				artist_song.insertBefore(h3, artist_song.firstChild)
 				
 				// console.log(index, datas.result.full_title)
 				
 				// showContent.append(artist_song)
-			} else {
-				if(li.innerHTML !== ""){
-					console.log('Not Empty')
-				}else{
-					console.log('Empty');
-				}
 			}
 		})
 
@@ -93,8 +90,7 @@ btn.addEventListener('click', function(){
 		alert('Empty Strings not allowed');	
 	}else{
     // searchSongs(names.value)
-		let h3 = document.createElement("h3")
-		h3.innerHTML = `These are the top 3 songs`
+		
 
 		getArtiste()
 	}
@@ -106,7 +102,9 @@ function showDetails(data){
 	artist_state.innerHTML = `<img src="${data.response.artist.user.avatar.medium.url}" alt="Artist Picture"/>`
 	artist_name.innerHTML = ""
 
-	let p 
+	let p
+	let h4 = document.createElement('h4')
+	h4.innerHTML = "Short Description"
 
 	data.response.artist.description.dom.children.map((repo) => {
 		console.log(repo)
@@ -118,6 +116,8 @@ function showDetails(data){
 				let newWord = JSON.stringify(value)
 				p.append(JSON.parse(newWord))
 				artist_name.append(p)
+				artist_name.insertBefore(h4, artist_name.firstChild)
+				
 			
 			} else{
 				

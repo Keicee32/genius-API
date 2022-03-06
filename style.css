@@ -3,10 +3,6 @@ li{
 }
 
 h3{
-    visibility: hidden;
-}
-
-.show{
     visibility: visible;
 }
 
