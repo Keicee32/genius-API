@@ -6,7 +6,6 @@ let artist_name = document.querySelector('.artist_name')
 let artist_state = document.querySelector('.artist_state')
 let showContent = document.querySelector('.show')
 let artist_song = document.querySelector('.artist_song')
-// let h3 = document.querySelectorAll('h3')
 
 
 async function searchSongs(artist_name)
@@ -31,10 +30,8 @@ async function searchSongs(artist_name)
 		let h3 = document.createElement("h3")
 			h3.innerHTML = "These are the top 3 songs"
 
-		// console.log(data);
 		data.response.hits.forEach((datas,index) => {
 			
-			// console.log(datas.length <= 3);
 			if(index <= perchunk){
 				
 				li = document.createElement('li')
@@ -42,9 +39,6 @@ async function searchSongs(artist_name)
 				artist_song.append(li)
 				artist_song.insertBefore(h3, artist_song.firstChild)
 				
-				// console.log(index, datas.result.full_title)
-				
-				// showContent.append(artist_song)
 			}
 		})
 
@@ -116,12 +110,8 @@ function showDetails(data){
 				let newWord = JSON.stringify(value)
 				p.append(JSON.parse(newWord))
 				artist_name.append(p)
-				artist_name.insertBefore(h4, artist_name.firstChild)
-				
-			
-			} else{
-				
-			}
+				artist_name.insertBefore(h4, artist_name.firstChild)	
+			} 
 		})
 	})
 	
