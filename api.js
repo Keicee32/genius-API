@@ -31,10 +31,9 @@ async function searchSongs(artist_name)
 		let h3 = document.createElement("h3")
 			h3.innerHTML = "These are the top 3 songs"
 
-		// console.log(data);
+		
 		data.response.hits.forEach((datas,index) => {
 			
-			// console.log(datas.length <= 3);
 			if(index <= perchunk){
 				
 				li = document.createElement('li')
@@ -42,9 +41,6 @@ async function searchSongs(artist_name)
 				artist_song.append(li)
 				artist_song.insertBefore(h3, artist_song.firstChild)
 				
-				// console.log(index, datas.result.full_title)
-				
-				// showContent.append(artist_song)
 			}
 		})
 
@@ -117,11 +113,6 @@ function showDetails(data){
 				p.append(JSON.parse(newWord))
 				artist_name.append(p)
 				artist_name.insertBefore(h4, artist_name.firstChild)
-				
-			
-			} else{
-				
-			}
 		})
 	})
 	
