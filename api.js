@@ -110,6 +110,7 @@ function showDetails(data){
 				let newWord = JSON.stringify(value)
 				p.append(JSON.parse(newWord))
 				artist_name.append(p)
+				artist_name.insertBefore(h4, artist_name.firstChild)
 				artist_name.insertBefore(h4, artist_name.firstChild)	
 			} 
 		})
