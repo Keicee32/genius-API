@@ -6,7 +6,6 @@ let artist_name = document.querySelector('.artist_name')
 let artist_state = document.querySelector('.artist_state')
 let showContent = document.querySelector('.show')
 let artist_song = document.querySelector('.artist_song')
-// let h3 = document.querySelectorAll('h3')
 
 
 async function searchSongs(artist_name)
