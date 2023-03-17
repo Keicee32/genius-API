@@ -30,7 +30,6 @@ async function searchSongs(artist_name)
 		let h3 = document.createElement("h3")
 			h3.innerHTML = "These are the top 3 songs"
 
-		
 		data.response.hits.forEach((datas,index) => {
 			
 			if(index <= perchunk){
@@ -112,6 +111,8 @@ function showDetails(data){
 				p.append(JSON.parse(newWord))
 				artist_name.append(p)
 				artist_name.insertBefore(h4, artist_name.firstChild)
+				artist_name.insertBefore(h4, artist_name.firstChild)	
+			} 
 		})
 	})
 	
